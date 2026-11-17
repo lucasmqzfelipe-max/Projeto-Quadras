@@ -37,7 +37,7 @@ export const appRouter = router({
     create: protectedProcedure
       .input(
         z.object({
-          name: z.string().trim().min(1).max(180),
+          name: z.string().trim().min(3).max(180),
           city: z.string().trim().min(2).max(120),
           region: z.string().trim().min(2).max(120),
           address: z.string().trim().min(5),
