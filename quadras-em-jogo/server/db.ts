@@ -93,12 +93,10 @@ export async function listCourts(filters: CourtFilters = {}) {
 
   const conditions = [];
   const locationConditions = [];
-  if (filters.city?.trim()) conditions.push(like(courts.city, `%${filters.city.trim()}%`));
-  if (filters.region?.trim()) conditions.push(like(courts.region, `%${filters.region.trim()}%`));
-  if (filters.status) conditions.push(eq(courts.status, filters.status));
-  if (filters.sportType?.trim()) {
-    conditions.push(like(courts.sportType, `%${filters.sportType.trim()}%`));
-  }
+  if (filters.city?.trim()) locationConditions.push(like(courts.city, `%${filters.city.trim()}%`));
+  if (filters.region?.trim()) locationConditions.push(like(courts.region, `%${filters.region.trim()}%`));
+  if (locationConditions.length) conditions.push(or(...locationConditions));
+
 
   return db
     .select()
