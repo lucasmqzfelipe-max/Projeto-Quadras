@@ -149,5 +149,5 @@ export async function getCourtStatusHistory(courtId: number) {
     .select()
     .from(statusUpdates)
     .where(eq(statusUpdates.courtId, courtId))
-    .orderBy(statusUpdates.createdAt);
+      .orderBy(desc(statusUpdates.createdAt));
 }
