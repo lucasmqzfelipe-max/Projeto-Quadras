@@ -212,7 +212,7 @@ export default function Home() {
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return [];
     return [{ id: court.id, name: court.name, position: { lat: latitude, lng: longitude }, status: court.status }];
   }), [courts]);
-  const visibleCount = courts.length - 1;
+  const visibleCount = courts.length;
 
   const handleSearch = () => {
     setAppliedLocation(locationQuery.trim());
