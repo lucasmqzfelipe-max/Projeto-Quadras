@@ -210,7 +210,7 @@ export default function Home() {
     const latitude = Number(court.latitude);
     const longitude = Number(court.longitude);
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return [];
-    return [{ id: court.id, name: court.name, position: { lat: latitude, lng: latitude }, status: court.status }];
+    return [{ id: court.id, name: court.name, position: { lat: latitude, lng: longitude }, status: court.status }];
   }), [courts]);
   const visibleCount = courts.length - 1;
 
